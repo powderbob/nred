@@ -1,0 +1,135 @@
+[
+    {
+        "id": "1bba715c.cbe0ff",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fc472c20.2de0a",
+        "type": "inject",
+        "z": "1bba715c.cbe0ff",
+        "name": "WINDOW01",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/sensors/window1",
+        "payload": "open",
+        "payloadType": "str",
+        "x": 460,
+        "y": 340,
+        "wires": [
+            [
+                "c86c499f.5999f8"
+            ]
+        ]
+    },
+    {
+        "id": "e96cbba5.b1e9b8",
+        "type": "debug",
+        "z": "1bba715c.cbe0ff",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c86c499f.5999f8",
+        "type": "mqtt out",
+        "z": "1bba715c.cbe0ff",
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "broker": "5b30f2fc.a586fc",
+        "x": 770,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "aad02e54.cb0f1",
+        "type": "mqtt in",
+        "z": "1bba715c.cbe0ff",
+        "name": "",
+        "topic": "/sensors/#",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "5b30f2fc.a586fc",
+        "x": 460,
+        "y": 500,
+        "wires": [
+            [
+                "e96cbba5.b1e9b8"
+            ]
+        ]
+    },
+    {
+        "id": "b360af76.9a4cc",
+        "type": "inject",
+        "z": "1bba715c.cbe0ff",
+        "name": "WINDOW01",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "/sensors/window1",
+        "payload": "closed",
+        "payloadType": "str",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "c86c499f.5999f8"
+            ]
+        ]
+    },
+    {
+        "id": "5b30f2fc.a586fc",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "https://test.mosquitto.org/",
+        "port": "1883",
+        "clientid": "node-red.pbob",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
